@@ -15,10 +15,7 @@ before_script:
       ./cc-test-reporter before-build
     fi
 after_script: 
-  - |
-    if [[ "$TRAVIS_CPU_ARCH" == "amd64" ]]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
-    else bundle exec codeclimate-test-reporter
-    fi
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 notifications:
   webhooks:
     urls:
